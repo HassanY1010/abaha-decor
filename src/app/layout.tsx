@@ -30,7 +30,7 @@ export default function RootLayout({
   const schema = generateLocalBusinessSchema();
 
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable}>
+    <html lang="ar" dir="rtl" className={cairo.variable} suppressHydrationWarning>
       <head>
         {/* Structured Data JSON-LD for Search Engines */}
         <script
@@ -38,7 +38,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </head>
-      <body className="antialiased min-h-screen flex flex-col justify-between selection:bg-[#C59B27]/20 selection:text-[#111827]">
+      <body
+        className="antialiased min-h-screen flex flex-col justify-between selection:bg-[#C59B27]/20 selection:text-[#111827]"
+        suppressHydrationWarning
+      >
         {/* Skip to main content link for keyboard and screen reader accessibility */}
         <a
           href="#main-content"
