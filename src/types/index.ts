@@ -51,6 +51,7 @@ export interface ProjectItem {
   description: string;
   scope: string[];
   location: string;
+  imageUrl?: string;
   imageAlt: string;
   accentColor?: string;
   featured?: boolean;

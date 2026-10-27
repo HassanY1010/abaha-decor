@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#111827] text-white pt-16 pb-12 border-t border-[#1F2937]">
       <Container size="wide">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-gray-800">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 pb-12 border-b border-gray-800">
           {/* Brand info */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
@@ -133,7 +133,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4 text-center sm:text-start">
           <p>
             جميع الحقوق محفوظة © {currentYear} {companyData.name}.
           </p>

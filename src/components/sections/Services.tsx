@@ -42,7 +42,7 @@ export const Services: React.FC = () => {
             return (
               <div
                 key={service.id}
-                className="group flex flex-col justify-between rounded-2xl bg-white p-7 border border-[#E5E2DA] hover:border-[#C59B27]/50 hover:shadow-lg transition-all duration-300"
+                className="group flex flex-col justify-between rounded-2xl bg-white p-5 sm:p-7 border border-[#E5E2DA] hover:border-[#C59B27]/50 hover:shadow-lg transition-all duration-300"
               >
                 <div>
                   {/* Service Icon & Deliverable badge */}

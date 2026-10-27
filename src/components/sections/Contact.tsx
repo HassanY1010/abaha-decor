@@ -62,7 +62,7 @@ export const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Direct Channels Cards */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-8 rounded-2xl bg-[#FAF9F6] border border-[#E5E2DA]">
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#FAF9F6] border border-[#E5E2DA]">
               <h3 className="text-xl font-bold text-[#111827] mb-6">
                 قنوات الاتصال المباشرة
               </h3>
@@ -169,7 +169,7 @@ export const Contact: React.FC = () => {
 
           {/* Interactive WhatsApp Quote Generator Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 rounded-3xl bg-[#FAF9F6] border border-[#E5E2DA] shadow-sm">
+            <div className="p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl bg-[#FAF9F6] border border-[#E5E2DA] shadow-sm">
               <div className="flex items-center gap-2.5 text-xs font-bold text-[#A07810] bg-[#C59B27]/10 px-3 py-1.5 rounded-md self-start inline-flex mb-4">
                 <Calculator className="w-4 h-4" aria-hidden="true" />
                 <span>حاسبة الطلب المباشر عبر الواتساب</span>
@@ -178,12 +178,12 @@ export const Contact: React.FC = () => {
               <h3 className="text-xl sm:text-2xl font-bold text-[#111827] mb-2">
                 حدد مواصفات مشروعك للحصول على تسعير فوري
               </h3>
-              <p className="text-xs sm:text-sm text-[#5E6672] mb-8 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#5E6672] mb-6 sm:mb-8 leading-relaxed">
                 املأ الحقول التالية لنقوم بتجهيز رسالة منظمة بتفاصيل مشروعك لفتحها في محادثة الواتساب مع مهندسنا مباشرة دون انتظار.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   {/* Property Type */}
                   <div>
                     <label
@@ -234,7 +234,7 @@ export const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   {/* Approx Area */}
                   <div>
                     <label

@@ -28,7 +28,7 @@ export const Process: React.FC = () => {
           subtitle="تسلسل تنفيذي منظم يضمن سلاسة الإنجاز وإبقاءك على اطلاع كامل بكل مرحلة دون مفاجآت"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
           {processSteps.map((step) => {
             const icon = iconMap[step.iconName] || (
               <CheckCircle2 className="w-5 h-5 text-[#C59B27]" aria-hidden="true" />
@@ -37,7 +37,7 @@ export const Process: React.FC = () => {
             return (
               <div
                 key={step.stepNumber}
-                className="relative flex flex-col justify-between p-6 rounded-2xl bg-[#FAF9F6] border border-[#E5E2DA] hover:border-[#C59B27]/40 transition-colors"
+                className="relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl bg-[#FAF9F6] border border-[#E5E2DA] hover:border-[#C59B27]/40 transition-colors"
               >
                 <div>
                   {/* Step Number Badge */}

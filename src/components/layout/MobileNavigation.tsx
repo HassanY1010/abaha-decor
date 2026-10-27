@@ -45,7 +45,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ links }) => 
   };
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         ref={toggleBtnRef}
         type="button"
@@ -71,7 +71,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ links }) => 
       <div
         id="mobile-menu"
         ref={menuRef}
-        className={`fixed top-0 bottom-0 start-0 w-[85%] max-w-xs bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col justify-between p-6 ${
+        className={`fixed top-0 bottom-0 start-0 w-[85%] max-w-xs bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col justify-between p-6 overflow-y-auto overscroll-contain ${
           isOpen ? 'translate-x-0' : '-translate-x-full rtl:translate-x-full'
         }`}
       >
@@ -82,7 +82,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ links }) => 
               type="button"
               onClick={() => setIsOpen(false)}
               aria-label="إغلاق القائمة"
-              className="p-2 rounded-md text-[#5E6672] hover:bg-[#F3F1EC] hover:text-[#181C20]"
+              className="p-2.5 rounded-md text-[#5E6672] hover:bg-[#F3F1EC] hover:text-[#181C20] transition-colors"
             >
               <X className="w-5 h-5" aria-hidden="true" />
             </button>

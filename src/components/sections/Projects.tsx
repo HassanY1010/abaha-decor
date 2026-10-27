@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { MapPin, Layers, MessageSquare, ArrowUpRight } from 'lucide-react';
 import { projectsData, projectCategories } from '@/data/projects';
 import { Container } from '@/components/ui/Container';
@@ -52,27 +53,39 @@ export const Projects: React.FC = () => {
               key={project.id}
               className="flex flex-col rounded-2xl bg-white border border-[#E5E2DA] overflow-hidden hover:border-[#C59B27]/50 hover:shadow-lg transition-all duration-300"
             >
-              {/* Architectural Visual Banner */}
-              <div className="relative h-48 bg-gradient-to-br from-[#1F2937] via-[#111827] to-[#0F172A] p-6 flex flex-col justify-between text-white">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-white/10 backdrop-blur-xs text-[#C59B27]">
+              {/* Architectural Visual Banner with Image */}
+              <div className="relative h-48 sm:h-56 overflow-hidden text-white flex flex-col justify-between p-4 sm:p-6 bg-gradient-to-br from-[#1F2937] to-[#111827] group">
+                {project.imageUrl && (
+                  <Image
+                    src={project.imageUrl}
+                    alt={project.imageAlt || project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
+                {/* Soft gradient overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/25 pointer-events-none" />
+
+                <div className="relative z-10 flex items-center justify-between">
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[#C59B27] border border-[#C59B27]/30 shadow-xs">
                     {project.categoryLabel}
                   </span>
-                  <div className="flex items-center gap-1 text-[11px] text-gray-300">
+                  <div className="flex items-center gap-1 text-[11px] text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md shadow-xs">
                     <MapPin className="w-3.5 h-3.5 text-[#C59B27]" aria-hidden="true" />
                     <span>{project.location}</span>
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="text-base font-bold text-white line-clamp-2">
+                <div className="relative z-10">
+                  <h3 className="text-base font-bold text-white line-clamp-2 drop-shadow-md">
                     {project.title}
                   </h3>
                 </div>
               </div>
 
               {/* Project Details */}
-              <div className="p-6 flex flex-col justify-between flex-1">
+              <div className="p-5 sm:p-6 flex flex-col justify-between flex-1">
                 <div>
                   <p className="text-xs sm:text-sm text-[#5E6672] leading-relaxed mb-5">
                     {project.description}

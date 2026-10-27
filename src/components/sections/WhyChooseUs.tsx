@@ -39,7 +39,7 @@ export const WhyChooseUs: React.FC = () => {
             return (
               <div
                 key={point.id}
-                className="flex flex-col p-8 rounded-2xl bg-[#FAF9F6] border border-[#E5E2DA] hover:border-[#C59B27]/40 hover:bg-white hover:shadow-md transition-all duration-300"
+                className="flex flex-col p-6 sm:p-8 rounded-2xl bg-[#FAF9F6] border border-[#E5E2DA] hover:border-[#C59B27]/40 hover:bg-white hover:shadow-md transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-xl bg-white border border-[#E5E2DA] flex items-center justify-center mb-5 shadow-xs shrink-0">
                   {icon}

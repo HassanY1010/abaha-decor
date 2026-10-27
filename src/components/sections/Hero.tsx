@@ -84,14 +84,14 @@ export const Hero: React.FC = () => {
 
           {/* Visual Showcase Panel */}
           <div className="lg:col-span-5">
-            <div className="relative mx-auto max-w-md lg:max-w-none rounded-2xl bg-gradient-to-br from-[#111827] to-[#1F2937] p-6 sm:p-8 text-white shadow-xl border border-gray-800">
+            <div className="relative mx-auto max-w-md lg:max-w-none rounded-2xl bg-gradient-to-br from-[#111827] to-[#1F2937] p-5 sm:p-8 text-white shadow-xl border border-gray-800">
               {/* Header inside card */}
-              <div className="flex items-center justify-between pb-6 border-b border-gray-800 mb-6">
+              <div className="flex items-center justify-between pb-5 sm:pb-6 border-b border-gray-800 mb-5 sm:mb-6">
                 <div>
                   <span className="text-xs font-semibold text-[#C59B27] tracking-wider uppercase">
                     معايير التنفيذ
                   </span>
-                  <h3 className="text-lg font-bold text-white mt-1">منظومة التشطيب الاحترافي</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-white mt-1">منظومة التشطيب الاحترافي</h3>
                 </div>
                 <span className="px-2.5 py-1 rounded-md bg-white/10 text-xs text-gray-300 font-mono">
                   Turnkey
@@ -99,31 +99,31 @@ export const Hero: React.FC = () => {
               </div>
 
               {/* Architectural Highlights Checklist */}
-              <div className="space-y-4">
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#C59B27]/50 transition-colors">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-semibold text-sm text-gray-100">أسقف وجبس بورد</span>
-                    <span className="text-xs text-[#C59B27]">ليزر وميزان دقيق</span>
+              <div className="space-y-3.5 sm:space-y-4">
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#C59B27]/50 transition-colors">
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <span className="font-semibold text-xs sm:text-sm text-gray-100">أسقف وجبس بورد</span>
+                    <span className="text-[11px] sm:text-xs text-[#C59B27] shrink-0">ليزر وميزان دقيق</span>
                   </div>
                   <p className="text-xs text-gray-400">
                     هياكل حديدية معتمدة، بيوت ستائر مخفية، ومسارات إنارة مغناطيسية مدمجة.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#C59B27]/50 transition-colors">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-semibold text-sm text-gray-100">أرضيات وبورسلان</span>
-                    <span className="text-xs text-[#C59B27]">قص ليزر ٤٥°</span>
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#C59B27]/50 transition-colors">
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <span className="font-semibold text-xs sm:text-sm text-gray-100">أرضيات وبورسلان</span>
+                    <span className="text-[11px] sm:text-xs text-[#C59B27] shrink-0">قص ليزر ٤٥°</span>
                   </div>
                   <p className="text-xs text-gray-400">
                     تسوية خرسانية ذاتية، غراء أوروبي عالي الالتصاق، وترويبات إيبوكسي.
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#C59B27]/50 transition-colors">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-semibold text-sm text-gray-100">دهانات وتشطيبات جدارية</span>
-                    <span className="text-xs text-[#C59B27]">معاجين ناعمة</span>
+                <div className="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#C59B27]/50 transition-colors">
+                  <div className="flex items-center justify-between gap-2 mb-1">
+                    <span className="font-semibold text-xs sm:text-sm text-gray-100">دهانات وتشطيبات جدارية</span>
+                    <span className="text-[11px] sm:text-xs text-[#C59B27] shrink-0">معاجين ناعمة</span>
                   </div>
                   <p className="text-xs text-gray-400">
                     صنفرة ميكانيكية، طبقات أساس متينة، وبدائل خشب ورخام فاخرة.
