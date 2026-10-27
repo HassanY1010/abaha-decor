@@ -43,11 +43,11 @@ export const companyData: CompanyInfo = {
 };
 
 export const mainNavLinks = [
-  { href: '#about', label: 'عن الشركة' },
-  { href: '#services', label: 'خدماتنا' },
-  { href: '#why-us', label: 'لماذا نحن' },
-  { href: '#projects', label: 'معرض الأعمال' },
-  { href: '#process', label: 'مراحل العمل' },
-  { href: '#faq', label: 'الأسئلة الشائعة' },
-  { href: '#contact', label: 'تواصل معنا' },
+  { href: '/#about', label: 'عن الشركة' },
+  { href: '/#services', label: 'خدماتنا' },
+  { href: '/#why-us', label: 'لماذا نحن' },
+  { href: '/#projects', label: 'معرض الأعمال' },
+  { href: '/#process', label: 'مراحل العمل' },
+  { href: '/#faq', label: 'الأسئلة الشائعة' },
+  { href: '/#contact', label: 'تواصل معنا' },
 ];

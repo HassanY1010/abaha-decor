@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import {
   Building2,
   PenTool,
@@ -80,17 +81,24 @@ export const Services: React.FC = () => {
                 </div>
 
                 {/* Service Direct Action CTA */}
-                <div className="pt-4 border-t border-[#F0EEE8] flex items-center justify-between">
+                <div className="pt-4 border-t border-[#F0EEE8] flex items-center justify-between gap-3 text-xs">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="font-bold text-[#C59B27] hover:underline inline-flex items-center gap-1 group-hover:text-[#A07810]"
+                    aria-label={`تفاصيل ومواصفات خدمة ${service.title}`}
+                  >
+                    <span>تفاصيل الخدمة والمواصفات</span>
+                    <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-0 group-hover:-translate-x-0.5 transition-transform" aria-hidden="true" />
+                  </Link>
+
                   <a
                     href={createWhatsAppLink({ serviceTitle: service.title })}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`طلب استشارة في خدمة ${service.title} عبر الواتساب`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111827] group-hover:text-[#C59B27] transition-colors"
+                    className="inline-flex items-center gap-1 font-semibold text-[#5E6672] hover:text-[#111827] transition-colors"
                   >
-                    <span>طلب استشارة في هذه الخدمة</span>
-                    <span className="sr-only"> ({service.title})</span>
-                    <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-0 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
+                    <span>طلب تسعيرة</span>
                   </a>
                 </div>
               </div>

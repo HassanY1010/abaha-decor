@@ -41,6 +41,11 @@ export interface ServiceItem {
   features: string[];
   iconName: string;
   deliverables: string[];
+  materialsInfo?: string[];
+  processSteps?: { title: string; description: string }[];
+  faq?: { question: string; answer: string }[];
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 export interface ProjectItem {

@@ -1,4 +1,4 @@
-# موقع صرح التشطيبات والديكور — منصة ويب مهنية متكاملة
+# موقع ديكورات ودهانات الدمام — منصة ويب مهنية متكاملة
 Professional Next.js Architectural Finishing & Interior Decor Business Website
 
 🌐 **الموقع الحي المباشر:** [https://abaha-decor-evu8.vercel.app/](https://abaha-decor-evu8.vercel.app/)

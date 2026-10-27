@@ -3,16 +3,17 @@ import { companyData } from '@/data/company';
 import { servicesData } from '@/data/services';
 import { faqData } from '@/data/faq';
 import { formatPhoneForTel } from '@/lib/whatsapp';
+import { ServiceItem } from '@/types';
 
 // النطاق الإنتاجي الفعلي للموقع (بدون شرطة مائلة في النهاية لضمان تطابق Canonical وSitemap)
-const productionDomain = (
+export const productionDomain = (
   process.env.NEXT_PUBLIC_SITE_URL || 'https://abaha-decor-evu8.vercel.app'
 ).replace(/\/$/, '');
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(productionDomain),
   title: {
-    default: `${companyData.name} | تشطيبات وديكورات ودهانات في الدمام`,
+    default: `${companyData.name} | تشطيبات وديكور داخلي بالمنطقة الشرقية`,
     template: `%s | ${companyData.name}`,
   },
   description:
@@ -45,16 +46,16 @@ export const siteMetadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '48x48' },
-      { url: '/images/logo-icon.jpg', sizes: '192x192', type: 'image/jpeg' },
+      { url: '/icon.png', sizes: '192x192', type: 'image/png' },
     ],
-    apple: [{ url: '/images/logo-icon.jpg', sizes: '180x180', type: 'image/jpeg' }],
+    apple: [{ url: '/icon.png', sizes: '180x180', type: 'image/png' }],
     shortcut: '/favicon.ico',
   },
   alternates: {
     canonical: productionDomain,
   },
   openGraph: {
-    title: `${companyData.name} | تشطيبات وديكورات ودهانات في الدمام`,
+    title: `${companyData.name} | تشطيبات وديكور داخلي بالمنطقة الشرقية`,
     description:
       'خدمات ديكورات ودهانات عصرية وتصميم داخلي متكامل للفلل والمنازل والمشاريع السكنية والتجارية في الدمام والمنطقة الشرقية مع إشراف هندسي وضمان الجودة.',
     url: productionDomain,
@@ -72,7 +73,7 @@ export const siteMetadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${companyData.name} | تشطيبات وديكورات ودهانات في الدمام`,
+    title: `${companyData.name} | تشطيبات وديكور داخلي بالمنطقة الشرقية`,
     description:
       'تنفيذ أعمال الديكورات العصرية والدهانات وتشطيب الفلل في الدمام والمنطقة الشرقية بإشراف هندسي وتنفيذ متقن.',
     images: ['/images/og-share.jpg'],
@@ -126,7 +127,11 @@ export function generateLocalBusinessSchema() {
     areaServed: [
       {
         '@type': 'City',
-        name: companyData.city,
+        name: 'الدمام',
+      },
+      {
+        '@type': 'City',
+        name: 'الخبر',
       },
       {
         '@type': 'AdministrativeArea',
@@ -142,6 +147,7 @@ export function generateLocalBusinessSchema() {
           '@type': 'Service',
           name: service.title,
           description: service.shortDescription,
+          url: `${productionDomain}/services/${service.slug}`,
         },
         position: index + 1,
       })),
@@ -183,5 +189,57 @@ export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@graph': [businessEntity, websiteEntity, faqEntity],
+  };
+}
+
+/**
+ * توليد Structured Data لصفحات الخدمات المستقلة (Schema.org Service)
+ */
+export function generateServiceSchema(service: ServiceItem) {
+  const businessId = `${productionDomain}/#business`;
+  const serviceUrl = `${productionDomain}/services/${service.slug}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${serviceUrl}/#service`,
+    name: `${service.title} في الدمام والخبر`,
+    description: service.fullDescription || service.shortDescription,
+    url: serviceUrl,
+    provider: {
+      '@id': businessId,
+    },
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'الدمام',
+      },
+      {
+        '@type': 'City',
+        name: 'الخبر',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'المنطقة الشرقية',
+      },
+    ],
+    termsOfService: 'عقود نظامية وجداول كميات واضحة مع إشراف هندسي وضمان الجودة',
+    serviceType: service.title,
+  };
+}
+
+/**
+ * توليد BreadcrumbList لنتائج بحث Google
+ */
+export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 }

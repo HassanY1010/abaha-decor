@@ -106,3 +106,57 @@ test('SEO HTML Inspection: canonical, title, description, schema, OpenGraph, and
   assert.ok(website, 'WebSite must be present in structured data graph');
   assert.equal(website.inLanguage, 'ar-SA');
 });
+
+test('SEO Dedicated Service Pages: SSG HTML, Canonical, H1, Service Schema, and BreadcrumbList', () => {
+  const serviceSlugs = [
+    'turnkey-finishing',
+    'decorative-paints',
+    'wood-marble-alternatives',
+    'gypsum-ceilings',
+    'renovation-restoration',
+    'interior-design',
+  ];
+
+  for (const slug of serviceSlugs) {
+    const serviceHtmlPath = path.join(APP_DIR, 'services', slug + '.html');
+    assert.ok(
+      fs.existsSync(serviceHtmlPath),
+      `Static HTML for service "${slug}" must exist at ${serviceHtmlPath}`
+    );
+
+    const html = fs.readFileSync(serviceHtmlPath, 'utf8');
+
+    // 1. Canonical tag must match service URL
+    assert.ok(
+      html.includes(`<link rel="canonical" href="https://abaha-decor-evu8.vercel.app/services/${slug}"/>`),
+      `Service page ${slug} must include accurate canonical link`
+    );
+
+    // 2. Heading hierarchy (must contain semantic H1 with local relevance)
+    assert.ok(html.includes('<h1'), `Service page ${slug} must have an <h1>`);
+    const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
+    assert.ok(h1Match, `Service page ${slug} must contain H1 content`);
+    assert.ok(
+      h1Match[1].includes('الدمام') || h1Match[1].includes('الخبر'),
+      `Service page ${slug} H1 must target the local market (الدمام / الخبر)`
+    );
+
+    // 3. Structured Data JSON-LD
+    const jsonLdMatches = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g);
+    assert.ok(jsonLdMatches && jsonLdMatches.length >= 2, `Service page ${slug} must include Schema.org scripts`);
+
+    const schemas = jsonLdMatches.map((tag) => {
+      const match = tag.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+      return JSON.parse(match[1]);
+    });
+
+    const serviceSchema = schemas.find((s) => s['@type'] === 'Service');
+    assert.ok(serviceSchema, `Service page ${slug} must include Schema.org Service type`);
+    assert.equal(serviceSchema.url, `https://abaha-decor-evu8.vercel.app/services/${slug}`);
+
+    const breadcrumbSchema = schemas.find((s) => s['@type'] === 'BreadcrumbList');
+    assert.ok(breadcrumbSchema, `Service page ${slug} must include BreadcrumbList type`);
+    assert.equal(breadcrumbSchema.itemListElement?.length, 3);
+  }
+});
+
