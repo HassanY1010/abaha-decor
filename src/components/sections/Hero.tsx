@@ -26,7 +26,7 @@ export const Hero: React.FC = () => {
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111827] leading-[1.2] mb-6">
-              تشطيبات وديكورات داخلية{' '}
+              تشطيبات وديكورات في أبها{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C59B27] to-[#A07810]">
                 بمعايير هندسية متقنة
               </span>
@@ -92,6 +92,7 @@ export const Hero: React.FC = () => {
                   src="/images/hero-interior.jpg"
                   alt="تنفيذ تشطيبات وديكورات معمارية فاخرة في أبها"
                   fill
+                  priority
                   sizes="(max-width: 768px) 100vw, 40vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />

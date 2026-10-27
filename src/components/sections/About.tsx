@@ -35,7 +35,7 @@ export const About: React.FC = () => {
         <SectionHeading
           badge="عن الشركة"
           title="نحن نبني مساحات تعكس أسلوب حياتك وتلبي طموحك"
-          subtitle="شريكك الموثوق في أعمال التشطيبات والديكور الداخلي بالمملكة العربية السعودية"
+          subtitle="شريكك الموثوق في أعمال التشطيبات والديكور والتصميم الداخلي في أبها ومنطقة عسير"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -45,7 +45,7 @@ export const About: React.FC = () => {
             <div className="relative h-60 sm:h-72 w-full rounded-2xl overflow-hidden border border-[#E5E2DA] shadow-sm group">
               <Image
                 src="/images/about-engineers.jpg"
-                alt="إشراف هندسي ومعاينة موقعية لمشاريع التشطيب"
+                alt="إشراف هندسي ومعاينة موقعية لمشاريع التشطيب في أبها"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
