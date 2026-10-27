@@ -85,9 +85,11 @@ export const Services: React.FC = () => {
                     href={createWhatsAppLink({ serviceTitle: service.title })}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`طلب استشارة في خدمة ${service.title} عبر الواتساب`}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111827] group-hover:text-[#C59B27] transition-colors"
                   >
                     <span>طلب استشارة في هذه الخدمة</span>
+                    <span className="sr-only"> ({service.title})</span>
                     <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-0 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
                   </a>
                 </div>

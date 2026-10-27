@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Compass, PhoneCall } from 'lucide-react';
+import Image from 'next/image';
+import { PhoneCall } from 'lucide-react';
 import { companyData, mainNavLinks } from '@/data/company';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
@@ -17,8 +18,15 @@ export const Header: React.FC = () => {
             href="/"
             className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-[#C59B27] rounded-lg p-1"
           >
-            <div className="w-11 h-11 rounded-xl bg-[#111827] flex items-center justify-center text-[#C59B27] group-hover:scale-105 transition-transform duration-200 shadow-xs">
-              <Compass className="w-6 h-6" aria-hidden="true" />
+            <div className="w-11 h-11 rounded-xl overflow-hidden bg-[#111827] flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shadow-xs border border-[#C59B27]/30">
+              <Image
+                src="/images/logo-icon.jpg"
+                alt={companyData.name}
+                width={44}
+                height={44}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <div className="flex flex-col text-start">
               <span className="text-lg sm:text-xl font-bold tracking-tight text-[#111827] leading-none">

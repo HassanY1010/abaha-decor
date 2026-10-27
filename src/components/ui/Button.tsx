@@ -29,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
     primary:
       'bg-[#111827] text-white hover:bg-[#1F2937] focus-visible:outline-[#111827] shadow-sm',
     accent:
-      'bg-[#C59B27] text-white hover:bg-[#AD851D] focus-visible:outline-[#C59B27] shadow-sm',
+      'bg-[#C59B27] text-[#111827] font-bold hover:bg-[#D4A932] focus-visible:outline-[#C59B27] shadow-sm',
     secondary:
       'bg-[#F3F1EC] text-[#181C20] hover:bg-[#EAE6DF] focus-visible:outline-[#181C20]',
     outline:

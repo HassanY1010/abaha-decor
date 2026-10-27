@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://abaha-decor-evu8.vercel.app';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // لا نصدر روابط خريطة موقع تشير لنطاقات وهمية في حال عدم توفر النطاق الرسمي

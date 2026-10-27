@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import { companyData } from '@/data/company';
 import { formatPhoneForTel } from '@/lib/whatsapp';
 
-// النطاق الإنتاجي الفعلي (يُضبط فقط عبر متغير البيئة بعد حسم وشراء النطاق الرسمي)
-const productionDomain = process.env.NEXT_PUBLIC_SITE_URL;
+// النطاق الإنتاجي الفعلي للموقع
+const productionDomain =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://abaha-decor-evu8.vercel.app';
 
 export const siteMetadata: Metadata = {
   ...(productionDomain ? { metadataBase: new URL(productionDomain) } : {}),
@@ -34,6 +35,11 @@ export const siteMetadata: Metadata = {
     address: false,
     telephone: false,
   },
+  icons: {
+    icon: '/images/logo-icon.jpg',
+    apple: '/images/logo-icon.jpg',
+    shortcut: '/images/logo-icon.jpg',
+  },
   ...(productionDomain ? { alternates: { canonical: '/' } } : {}),
   openGraph: {
     title: `${companyData.name} | تشطيبات وديكورات معمارية في ${companyData.city}`,
@@ -42,11 +48,20 @@ export const siteMetadata: Metadata = {
     siteName: companyData.name,
     locale: 'ar_SA',
     type: 'website',
+    images: [
+      {
+        url: '/images/og-share.jpg',
+        width: 1200,
+        height: 630,
+        alt: `${companyData.name} | تشطيبات وديكورات معمارية في أبها`,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${companyData.name} | تشطيبات وديكورات معمارية متكاملة`,
     description: companyData.shortDescription,
+    images: ['/images/og-share.jpg'],
   },
   robots: {
     index: true,

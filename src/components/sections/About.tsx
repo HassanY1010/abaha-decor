@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Target, Sparkles, Ruler, ShieldCheck } from 'lucide-react';
 import { companyData } from '@/data/company';
 import { Container } from '@/components/ui/Container';
@@ -40,6 +41,26 @@ export const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Main Description */}
           <div className="lg:col-span-6 space-y-5 text-[#5E6672] leading-relaxed text-base sm:text-lg">
+            {/* Engineer & site quality photo */}
+            <div className="relative h-60 sm:h-72 w-full rounded-2xl overflow-hidden border border-[#E5E2DA] shadow-sm group">
+              <Image
+                src="/images/about-engineers.jpg"
+                alt="إشراف هندسي ومعاينة موقعية لمشاريع التشطيب"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
+              <div className="absolute bottom-3.5 start-4 end-4 text-white">
+                <span className="text-[11px] font-bold text-[#C59B27] bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-md border border-[#C59B27]/30 inline-block mb-1">
+                  إشراف هندسي موقعي مباشر
+                </span>
+                <p className="text-xs text-gray-200">
+                  مهندسون وفنيون متخصصون يتابعون كل تفصيلة بدقة وفق المخططات المعمارية المعتمدة
+                </p>
+              </div>
+            </div>
+
             <p>
               في <strong className="text-[#111827] font-bold">{companyData.name}</strong>، نؤمن بأن التشطيب ليس مجرد دهان أو تركيب أرضيات، بل هو صناعة فراغ معماري يجمع بين الراحة، الوظيفة، والجمال الدائم.
             </p>
@@ -47,7 +68,7 @@ export const About: React.FC = () => {
               {companyData.fullDescription}
             </p>
             <p className="text-sm bg-[#FAF9F6] p-4 rounded-xl border border-[#E5E2DA] text-[#181C20]">
-              <span className="font-bold text-[#C59B27]">نطاق أعمالنا: </span>
+              <span className="font-bold text-[#855F05]">نطاق أعمالنا: </span>
               نخدم عملاءنا في {companyData.serviceArea} للمشاريع السكنية (فلل، شقق، دوبلكس) والمشاريع التجارية (مكاتب، معارض، مقاهي).
             </p>
           </div>

@@ -1,16 +1,17 @@
 import type { Metadata, Viewport } from 'next';
-import { Cairo } from 'next/font/google';
+import { Tajawal } from 'next/font/google';
 import './globals.css';
 import { siteMetadata, generateLocalBusinessSchema } from '@/lib/metadata';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { FloatingWhatsApp } from '@/components/layout/FloatingWhatsApp';
 
-const cairo = Cairo({
-  subsets: ['arabic', 'latin'],
-  weight: ['400', '500', '600', '700', '800'],
+const tajawal = Tajawal({
+  subsets: ['arabic'],
+  weight: ['500', '700', '800'],
   display: 'swap',
-  variable: '--font-cairo',
+  variable: '--font-tajawal',
+  preload: true,
 });
 
 export const metadata: Metadata = siteMetadata;
@@ -30,7 +31,7 @@ export default function RootLayout({
   const schema = generateLocalBusinessSchema();
 
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable} suppressHydrationWarning>
+    <html lang="ar" dir="rtl" className={tajawal.variable} suppressHydrationWarning>
       <head>
         {/* Structured Data JSON-LD for Search Engines */}
         <script

@@ -61,7 +61,7 @@ export const Process: React.FC = () => {
 
                 {step.durationApprox && (
                   <div className="pt-3 border-t border-[#E5E2DA]/60">
-                    <span className="text-[11px] text-[#A07810] font-semibold bg-[#C59B27]/10 px-2.5 py-1 rounded-md inline-block">
+                    <span className="text-[11px] text-[#785404] font-semibold bg-[#C59B27]/10 px-2.5 py-1 rounded-md inline-block">
                       المدة: {step.durationApprox}
                     </span>
                   </div>

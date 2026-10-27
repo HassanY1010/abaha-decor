@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ShieldCheck, Clock, CheckCircle2, MessageCircle, ArrowLeft } from 'lucide-react';
 import { companyData } from '@/data/company';
 import { Container } from '@/components/ui/Container';
@@ -19,7 +20,7 @@ export const Hero: React.FC = () => {
           {/* Main Text Content */}
           <div className="lg:col-span-7 flex flex-col text-start">
             {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-[#C59B27]/10 text-[#A07810] border border-[#C59B27]/25 mb-6">
+            <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-[#C59B27]/10 text-[#785404] border border-[#C59B27]/25 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" aria-hidden="true" />
               <span>{companyData.serviceArea} • تشطيبات معمارية متكاملة</span>
             </div>
@@ -84,14 +85,34 @@ export const Hero: React.FC = () => {
 
           {/* Visual Showcase Panel */}
           <div className="lg:col-span-5">
-            <div className="relative mx-auto max-w-md lg:max-w-none rounded-2xl bg-gradient-to-br from-[#111827] to-[#1F2937] p-5 sm:p-8 text-white shadow-xl border border-gray-800">
+            <div className="relative mx-auto max-w-md lg:max-w-none rounded-2xl bg-gradient-to-br from-[#111827] to-[#1F2937] p-5 sm:p-7 text-white shadow-xl border border-gray-800">
+              {/* Luxury architectural preview image */}
+              <div className="relative h-44 sm:h-52 w-full rounded-xl overflow-hidden mb-5 border border-white/10 group shadow-md">
+                <Image
+                  src="/images/hero-interior.jpg"
+                  alt="تنفيذ تشطيبات وديكورات معمارية فاخرة في أبها"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute bottom-3 start-3 end-3 flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#C59B27] bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-[#C59B27]/30">
+                    نموذج تنفيذ فيلا سكنية • أبها
+                  </span>
+                  <span className="text-[11px] text-gray-300 bg-black/70 backdrop-blur-md px-2 py-1 rounded-md">
+                    تصميم وتنفيذ متكامل
+                  </span>
+                </div>
+              </div>
+
               {/* Header inside card */}
-              <div className="flex items-center justify-between pb-5 sm:pb-6 border-b border-gray-800 mb-5 sm:mb-6">
+              <div className="flex items-center justify-between pb-4 sm:pb-5 border-b border-gray-800 mb-4 sm:mb-5">
                 <div>
                   <span className="text-xs font-semibold text-[#C59B27] tracking-wider uppercase">
                     معايير التنفيذ
                   </span>
-                  <h3 className="text-base sm:text-lg font-bold text-white mt-1">منظومة التشطيب الاحترافي</h3>
+                  <h2 className="text-base sm:text-lg font-bold text-white mt-1">منظومة التشطيب الاحترافي</h2>
                 </div>
                 <span className="px-2.5 py-1 rounded-md bg-white/10 text-xs text-gray-300 font-mono">
                   Turnkey

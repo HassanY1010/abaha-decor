@@ -27,7 +27,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       )}
     >
       {badge && (
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#C59B27]/10 text-[#A07810] border border-[#C59B27]/20 mb-3.5 tracking-wide">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#C59B27]/10 text-[#785404] border border-[#C59B27]/20 mb-3.5 tracking-wide">
           <span className="w-1.5 h-1.5 rounded-full bg-[#C59B27]" aria-hidden="true" />
           <span>{badge}</span>
         </div>

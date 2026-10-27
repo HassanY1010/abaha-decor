@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Compass, Phone, Mail, MapPin, Clock, ArrowUpRight } from 'lucide-react';
+import Image from 'next/image';
+import { Phone, Mail, MapPin, Clock, ArrowUpRight } from 'lucide-react';
 import { companyData, mainNavLinks } from '@/data/company';
 import { servicesData } from '@/data/services';
 import { Container } from '@/components/ui/Container';
@@ -16,8 +17,14 @@ export const Footer: React.FC = () => {
           {/* Brand info */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#1F2937] border border-gray-700 flex items-center justify-center text-[#C59B27]">
-                <Compass className="w-5 h-5" aria-hidden="true" />
+              <div className="w-10 h-10 rounded-lg overflow-hidden bg-[#1F2937] border border-[#C59B27]/40 flex items-center justify-center shrink-0">
+                <Image
+                  src="/images/logo-icon.jpg"
+                  alt={companyData.name}
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="text-xl font-bold tracking-tight text-white">
                 {companyData.name}
@@ -26,9 +33,9 @@ export const Footer: React.FC = () => {
             <p className="text-sm text-gray-400 leading-relaxed">
               {companyData.shortDescription}
             </p>
-            <div className="text-xs text-gray-500 pt-2">
+            <div className="text-xs text-gray-400 pt-2">
               <span>نطاق الخدمة: </span>
-              <span className="text-gray-300 font-medium">{companyData.serviceArea}</span>
+              <span className="text-gray-200 font-medium">{companyData.serviceArea}</span>
             </div>
           </div>
 
@@ -133,12 +140,12 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4 text-center sm:text-start">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4 text-center sm:text-start">
           <p>
             جميع الحقوق محفوظة © {currentYear} {companyData.name}.
           </p>
           <div className="flex items-center gap-4">
-            <span className="text-gray-400 font-medium">موقع تعريفي وتسويقي مهني</span>
+            <span className="text-gray-300 font-medium">موقع تعريفي وتسويقي مهني</span>
           </div>
         </div>
       </Container>

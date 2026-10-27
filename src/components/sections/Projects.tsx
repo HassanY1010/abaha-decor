@@ -119,9 +119,11 @@ export const Projects: React.FC = () => {
                     })}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#C59B27] hover:underline"
+                    aria-label={`طلب استفسار مماثل لمشروع ${project.title} عبر الواتساب`}
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#855F05] hover:underline"
                   >
                     <span>طلب استفسار مماثل</span>
+                    <span className="sr-only"> ({project.title})</span>
                     <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
                 </div>

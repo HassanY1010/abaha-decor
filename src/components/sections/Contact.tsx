@@ -105,7 +105,7 @@ export const Contact: React.FC = () => {
                             href={createWhatsAppLink()}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm font-bold text-[#25D366] hover:underline"
+                            className="text-sm font-bold text-[#15803D] hover:underline"
                           >
                             بدء محادثة سريعة مع المهندس المسؤول
                           </a>
@@ -170,7 +170,7 @@ export const Contact: React.FC = () => {
           {/* Interactive WhatsApp Quote Generator Form */}
           <div className="lg:col-span-7">
             <div className="p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl bg-[#FAF9F6] border border-[#E5E2DA] shadow-sm">
-              <div className="flex items-center gap-2.5 text-xs font-bold text-[#A07810] bg-[#C59B27]/10 px-3 py-1.5 rounded-md self-start inline-flex mb-4">
+              <div className="flex items-center gap-2.5 text-xs font-bold text-[#785404] bg-[#C59B27]/10 px-3 py-1.5 rounded-md self-start inline-flex mb-4">
                 <Calculator className="w-4 h-4" aria-hidden="true" />
                 <span>حاسبة الطلب المباشر عبر الواتساب</span>
               </div>
@@ -301,7 +301,7 @@ export const Contact: React.FC = () => {
                 {/* Submit to WhatsApp */}
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl bg-[#25D366] text-white font-bold hover:bg-[#20bd5a] transition-all shadow-md active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-[#25D366]"
+                  className="w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl bg-[#15803D] text-white font-bold hover:bg-[#166534] transition-all shadow-md active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-[#15803D]"
                 >
                   <Send className="w-5 h-5 rtl:rotate-180" aria-hidden="true" />
                   <span>تجهيز وإرسال الطلب عبر الواتساب</span>

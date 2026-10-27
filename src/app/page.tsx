@@ -1,12 +1,15 @@
+import dynamic from 'next/dynamic';
 import { companyData } from '@/data/company';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
 import { Services } from '@/components/sections/Services';
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
-import { Projects } from '@/components/sections/Projects';
 import { Process } from '@/components/sections/Process';
-import { FAQ } from '@/components/sections/FAQ';
-import { Contact } from '@/components/sections/Contact';
+
+// Code splitting for below-the-fold interactive components (preserves SSR for SEO while deferring client JS execution)
+const Projects = dynamic(() => import('@/components/sections/Projects').then((m) => m.Projects));
+const FAQ = dynamic(() => import('@/components/sections/FAQ').then((m) => m.FAQ));
+const Contact = dynamic(() => import('@/components/sections/Contact').then((m) => m.Contact));
 
 export default function HomePage() {
   return (
@@ -22,3 +25,4 @@ export default function HomePage() {
     </>
   );
 }
+

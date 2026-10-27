@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --font-arabic: var(--font-cairo), 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-arabic: var(--font-tajawal), 'Tajawal', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
   /* Architectural Warm Luxury Design Tokens */
   --color-primary: #111827;
@@ -26,13 +26,13 @@
 
 html {
   scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: var(--font-arabic);
+  font-weight: 700;
   background-color: var(--color-bg-base);
   color: var(--color-text-main);
   line-height: 1.65;
