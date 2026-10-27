@@ -1,14 +1,17 @@
 export interface CompanyInfo {
   name: string;
+  isNameConfirmed: boolean;
   tagline: string;
   shortDescription: string;
   fullDescription: string;
   city: string;
   country: string;
   serviceArea: string;
+  isCityConfirmed: boolean;
   phone: string;
   whatsappNumber: string;
   email: string;
+  isContactConfigured: boolean;
   workingHours: string;
   workingDays: string;
   addressSnippet?: string;

@@ -80,42 +80,53 @@ export const Footer: React.FC = () => {
                 <MapPin className="w-4 h-4 text-[#C59B27] shrink-0 mt-0.5" aria-hidden="true" />
                 <span>{companyData.addressSnippet || companyData.city}</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#C59B27] shrink-0" aria-hidden="true" />
-                <a
-                  href={getDirectCallLink()}
-                  dir="ltr"
-                  className="hover:text-white transition-colors"
-                >
-                  {companyData.phone}
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#C59B27] shrink-0" aria-hidden="true" />
-                <a
-                  href={getEmailLink()}
-                  className="hover:text-white transition-colors text-xs sm:text-sm"
-                >
-                  {companyData.email}
-                </a>
-              </li>
+              {companyData.isContactConfigured && companyData.phone ? (
+                <li className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-[#C59B27] shrink-0" aria-hidden="true" />
+                  <a
+                    href={getDirectCallLink()}
+                    dir="ltr"
+                    className="hover:text-white transition-colors"
+                  >
+                    {companyData.phone}
+                  </a>
+                </li>
+              ) : null}
+              {companyData.isContactConfigured && companyData.email ? (
+                <li className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-[#C59B27] shrink-0" aria-hidden="true" />
+                  <a
+                    href={getEmailLink()}
+                    className="hover:text-white transition-colors text-xs sm:text-sm"
+                  >
+                    {companyData.email}
+                  </a>
+                </li>
+              ) : null}
+              {!companyData.isContactConfigured && (
+                <li className="text-xs text-amber-300/90 bg-amber-900/20 px-3 py-2 rounded-lg border border-amber-600/30">
+                  بيانات التواصل الرسمية قيد الاعتماد
+                </li>
+              )}
               <li className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-[#C59B27] shrink-0 mt-0.5" aria-hidden="true" />
                 <span>{companyData.workingHours}</span>
               </li>
             </ul>
 
-            <div className="mt-5">
-              <a
-                href={createWhatsAppLink()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs text-[#C59B27] hover:underline font-semibold"
-              >
-                <span>محادثة واتساب مباشرة</span>
-                <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
-              </a>
-            </div>
+            {companyData.isContactConfigured && companyData.whatsappNumber ? (
+              <div className="mt-5">
+                <a
+                  href={createWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#C59B27] hover:underline font-semibold"
+                >
+                  <span>محادثة واتساب مباشرة</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+                </a>
+              </div>
+            ) : null}
           </div>
         </div>
 

@@ -9,11 +9,10 @@ export const siteMetadata: Metadata = {
     default: `${companyData.name} | خدمات التشطيبات والديكور والتصميم الداخلي`,
     template: `%s | ${companyData.name}`,
   },
-  description: `${companyData.name} - ${companyData.shortDescription} في ${companyData.city} والمناطق المجاورة. إشراف هندسي وتنفيذ متقن.`,
+  description: `${companyData.name} - ${companyData.shortDescription} في ${companyData.serviceArea}. إشراف هندسي وتنفيذ متقن.`,
   applicationName: companyData.name,
   keywords: [
-    'تشطيبات الرياض',
-    'ديكورات داخلية',
+    'تشطيبات وديكورات',
     'تصميم داخلي',
     'تشطيب فيلا',
     'جبس بورد',
@@ -23,6 +22,7 @@ export const siteMetadata: Metadata = {
     'إشراف هندسي',
     'تسليم مفتاح',
     companyData.name,
+    ...(companyData.isCityConfirmed ? [`تشطيبات ${companyData.city}`] : []),
   ],
   authors: [{ name: companyData.name }],
   creator: companyData.name,
@@ -45,7 +45,7 @@ export const siteMetadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${companyData.name} | تشطيبات وديكورات بالرياض`,
+    title: `${companyData.name} | تشطيبات وديكورات معمارية متكاملة`,
     description: companyData.shortDescription,
   },
   robots: {
@@ -66,22 +66,22 @@ export const siteMetadata: Metadata = {
  * يتوافق مع المحتوى المعروض دون اختلاق تقييمات أو بيانات غير موثقة
  */
 export function generateLocalBusinessSchema() {
-  return {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
     name: companyData.name,
     description: companyData.shortDescription,
     url: siteUrl,
-    telephone: companyData.phone,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: companyData.city,
       addressCountry: 'SA',
+      ...(companyData.isCityConfirmed ? { addressLocality: companyData.city } : {}),
     },
     areaServed: {
       '@type': 'AdministrativeArea',
       name: companyData.serviceArea,
     },
+    priceRange: '$$',
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -97,6 +97,11 @@ export function generateLocalBusinessSchema() {
         closes: '20:00',
       },
     ],
-    priceRange: '$$',
   };
+
+  if (companyData.isContactConfigured && companyData.phone) {
+    schema.telephone = companyData.phone;
+  }
+
+  return schema;
 }

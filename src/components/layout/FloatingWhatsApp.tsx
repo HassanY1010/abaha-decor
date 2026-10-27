@@ -4,7 +4,7 @@ import { companyData } from '@/data/company';
 import { createWhatsAppLink } from '@/lib/whatsapp';
 
 export const FloatingWhatsApp: React.FC = () => {
-  if (!companyData.features.showFloatingWhatsApp) {
+  if (!companyData.features.showFloatingWhatsApp || !companyData.isContactConfigured || !companyData.whatsappNumber) {
     return null;
   }
 

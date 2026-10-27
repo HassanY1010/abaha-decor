@@ -28,11 +28,30 @@ export interface QuoteParams {
 }
 
 /**
+ * التحقق من اكتمال إعداد بيانات الاتصال الحقيقية لتفادي إطلاق الموقع ببيانات تجريبية
+ */
+export function isContactReady(): boolean {
+  const cleanNumber = formatWhatsAppNumber(companyData.whatsappNumber);
+  const cleanPhone = formatPhoneForTel(companyData.phone);
+  return Boolean(
+    companyData.isContactConfigured &&
+    cleanNumber &&
+    cleanNumber.length >= 9 &&
+    !cleanNumber.includes('00000000') &&
+    cleanPhone &&
+    !cleanPhone.includes('00000000')
+  );
+}
+
+/**
  * إنشاء رابط واتساب رسمي مع رسالة نموذجية مجهزة ومُشفرة بأمان
  */
 export function createWhatsAppLink(params?: QuoteParams): string {
+  if (!isContactReady()) {
+    return '#contact';
+  }
+
   const cleanNumber = formatWhatsAppNumber(companyData.whatsappNumber);
-  
   if (!cleanNumber) {
     return '#contact';
   }
@@ -60,6 +79,9 @@ export function createWhatsAppLink(params?: QuoteParams): string {
  * رابط الاتصال الهاتفي المباشر
  */
 export function getDirectCallLink(): string {
+  if (!isContactReady()) {
+    return '#contact';
+  }
   const clean = formatPhoneForTel(companyData.phone);
   return clean ? `tel:${clean}` : '#contact';
 }

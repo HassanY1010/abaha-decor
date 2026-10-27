@@ -21,7 +21,7 @@ export const Hero: React.FC = () => {
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-[#C59B27]/10 text-[#A07810] border border-[#C59B27]/25 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" aria-hidden="true" />
-              <span>{companyData.city} والمناطق المجاورة • تشطيبات معمارية متكاملة</span>
+              <span>{companyData.serviceArea} • تشطيبات معمارية متكاملة</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111827] leading-[1.2] mb-6">
@@ -43,7 +43,7 @@ export const Hero: React.FC = () => {
                 size="lg"
                 icon={<MessageCircle className="w-5 h-5" aria-hidden="true" />}
               >
-                طلب عرض سعر عبر الواتساب
+                {companyData.isContactConfigured ? 'طلب عرض سعر عبر الواتساب' : 'اطلب عرض سعر لمشروعك'}
               </Button>
 
               <Button

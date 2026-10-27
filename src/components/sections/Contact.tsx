@@ -67,68 +67,85 @@ export const Contact: React.FC = () => {
               </h3>
 
               <div className="space-y-6">
-                {/* Phone */}
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-white border border-[#E5E2DA] flex items-center justify-center text-[#C59B27] shrink-0 shadow-xs">
-                    <Phone className="w-5 h-5" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-[#5E6672] block">
-                      الاتصال الهاتفي المباشر
-                    </span>
-                    <a
-                      href={getDirectCallLink()}
-                      dir="ltr"
-                      className="text-base sm:text-lg font-bold text-[#111827] hover:text-[#C59B27] transition-colors"
-                    >
-                      {companyData.phone}
-                    </a>
-                  </div>
-                </div>
+                {companyData.isContactConfigured ? (
+                  <>
+                    {/* Phone */}
+                    {companyData.phone && (
+                      <div className="flex items-start gap-4">
+                        <div className="w-11 h-11 rounded-xl bg-white border border-[#E5E2DA] flex items-center justify-center text-[#C59B27] shrink-0 shadow-xs">
+                          <Phone className="w-5 h-5" aria-hidden="true" />
+                        </div>
+                        <div>
+                          <span className="text-xs font-semibold text-[#5E6672] block">
+                            الاتصال الهاتفي المباشر
+                          </span>
+                          <a
+                            href={getDirectCallLink()}
+                            dir="ltr"
+                            className="text-base sm:text-lg font-bold text-[#111827] hover:text-[#C59B27] transition-colors"
+                          >
+                            {companyData.phone}
+                          </a>
+                        </div>
+                      </div>
+                    )}
 
-                {/* WhatsApp */}
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0 shadow-xs">
-                    <MessageCircle className="w-5 h-5" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-semibold text-[#5E6672] block">
-                      محادثة واتساب فورية
-                    </span>
-                    <a
-                      href={createWhatsAppLink()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-bold text-[#25D366] hover:underline"
-                    >
-                      بدء محادثة سريعة مع المهندس المسؤول
-                    </a>
-                  </div>
-                </div>
+                    {/* WhatsApp */}
+                    {companyData.whatsappNumber && (
+                      <div className="flex items-start gap-4">
+                        <div className="w-11 h-11 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0 shadow-xs">
+                          <MessageCircle className="w-5 h-5" aria-hidden="true" />
+                        </div>
+                        <div>
+                          <span className="text-xs font-semibold text-[#5E6672] block">
+                            محادثة واتساب فورية
+                          </span>
+                          <a
+                            href={createWhatsAppLink()}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-bold text-[#25D366] hover:underline"
+                          >
+                            بدء محادثة سريعة مع المهندس المسؤول
+                          </a>
+                        </div>
+                      </div>
+                    )}
 
-                {/* Email */}
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-white border border-[#E5E2DA] flex items-center justify-center text-[#C59B27] shrink-0 shadow-xs">
-                    <Mail className="w-5 h-5" aria-hidden="true" />
+                    {/* Email */}
+                    {companyData.email && (
+                      <div className="flex items-start gap-4">
+                        <div className="w-11 h-11 rounded-xl bg-white border border-[#E5E2DA] flex items-center justify-center text-[#C59B27] shrink-0 shadow-xs">
+                          <Mail className="w-5 h-5" aria-hidden="true" />
+                        </div>
+                        <div>
+                          <span className="text-xs font-semibold text-[#5E6672] block">
+                            البريد الإلكتروني
+                          </span>
+                          <a
+                            href={getEmailLink()}
+                            className="text-sm font-bold text-[#111827] hover:text-[#C59B27] transition-colors"
+                          >
+                            {companyData.email}
+                          </a>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm leading-relaxed">
+                    <p className="font-bold mb-1 text-amber-800">بيانات الاتصال قيد الاعتماد الرسمي:</p>
+                    <p className="text-amber-700">
+                      لم يتم تعيين أرقام الهاتف أو الواتساب الرسمية حتى الآن. سيتم تفعيل قنوات الاتصال والروابط المباشرة فور إدخال الأرقام المعتمدة في ملف الإعدادات.
+                    </p>
                   </div>
-                  <div>
-                    <span className="text-xs font-semibold text-[#5E6672] block">
-                      البريد الإلكتروني
-                    </span>
-                    <a
-                      href={getEmailLink()}
-                      className="text-sm font-bold text-[#111827] hover:text-[#C59B27] transition-colors"
-                    >
-                      {companyData.email}
-                    </a>
-                  </div>
-                </div>
+                )}
 
                 {/* Working hours & location */}
                 <div className="pt-6 border-t border-[#E5E2DA] space-y-3 text-xs sm:text-sm text-[#5E6672]">
                   <div className="flex items-center gap-2.5">
                     <MapPin className="w-4 h-4 text-[#C59B27] shrink-0" aria-hidden="true" />
-                    <span>{companyData.addressSnippet || companyData.city}</span>
+                    <span>{companyData.serviceArea || companyData.city}</span>
                   </div>
                   <div className="flex items-center gap-2.5">
                     <Clock className="w-4 h-4 text-[#C59B27] shrink-0" aria-hidden="true" />
@@ -252,7 +269,7 @@ export const Contact: React.FC = () => {
                       onChange={(e) =>
                         setFormData({ ...formData, city: e.target.value })
                       }
-                      placeholder="مثال: الرياض - حي الملقا"
+                      placeholder="مثال: الحي أو المنطقة التابعة لنطاق الخدمة"
                       className="w-full px-4 py-3 rounded-xl bg-white border border-[#E5E2DA] text-sm text-[#181C20] focus:border-[#C59B27] focus:outline-hidden"
                     />
                   </div>

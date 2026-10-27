@@ -45,19 +45,21 @@ export const Header: React.FC = () => {
 
           {/* Header Action Buttons */}
           <div className="hidden sm:flex items-center gap-3">
-            <a
-              href={getDirectCallLink()}
-              className="inline-flex items-center gap-2 text-xs lg:text-sm font-semibold text-[#181C20] hover:text-[#C59B27] transition-colors px-3 py-2"
-              aria-label={`اتصل بنا هاتفياً على الرقم ${companyData.phone}`}
-            >
-              <PhoneCall className="w-4 h-4 text-[#C59B27]" aria-hidden="true" />
-              <span dir="ltr">{companyData.phone}</span>
-            </a>
+            {companyData.isContactConfigured && companyData.phone ? (
+              <a
+                href={getDirectCallLink()}
+                className="inline-flex items-center gap-2 text-xs lg:text-sm font-semibold text-[#181C20] hover:text-[#C59B27] transition-colors px-3 py-2"
+                aria-label={`اتصل بنا هاتفياً على الرقم ${companyData.phone}`}
+              >
+                <PhoneCall className="w-4 h-4 text-[#C59B27]" aria-hidden="true" />
+                <span dir="ltr">{companyData.phone}</span>
+              </a>
+            ) : null}
             <Button
               href="#contact"
               variant="primary"
               size="sm"
-              className="hidden lg:inline-flex"
+              className="inline-flex"
             >
               اطلب عرض سعر
             </Button>

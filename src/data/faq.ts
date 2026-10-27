@@ -1,4 +1,5 @@
 import { FAQItem } from '@/types';
+import { companyData } from '@/data/company';
 
 export const faqData: FAQItem[] = [
   {
@@ -28,8 +29,7 @@ export const faqData: FAQItem[] = [
   {
     id: 'faq-service-locations',
     question: 'ما هي المناطق والمدن التي تقدمون خدماتكم فيها؟',
-    answer:
-      'نقدم خدماتنا حالياً في مدينة الرياض وكافة أحيائها الشمالية والشرقية والجنوبية والغربية، مع إمكانية دراسة المشاريع الكبرى في المدن المجاورة بحسب حجم ونوع العمل.',
+    answer: `نقدم خدماتنا ونغطي المشاريع في ${companyData.serviceArea}، مع إمكانية دراسة المشاريع الكبرى في المناطق المجاورة بحسب حجم وطبيعة الأعمال المطلوبة.`,
   },
   {
     id: 'faq-renovation-services',
