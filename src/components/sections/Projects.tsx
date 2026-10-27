@@ -19,9 +19,9 @@ export const Projects: React.FC = () => {
     <section id="projects" className="py-20 md:py-28 bg-[#FAF9F6] border-b border-[#E5E2DA]">
       <Container size="wide">
         <SectionHeading
-          badge="نماذج الأعمال"
-          title="معرض المشاريع والأعمال المنفذة"
-          subtitle="استعرض نماذج وتصاميم متنوعة تعكس معاييرنا العالية في اختيار المواد ودقة اللمسات النهائية"
+          badge="نماذج معمارية"
+          title="نماذج وتصاميم معمارية مقترحة"
+          subtitle="استعرض نماذج وأساليب تشطيب معمارية توضح خيارات المواد، الإضاءة، والتوزيع الفراغي لمشروعك في أبها"
         />
 
         {/* Category Tabs */}
@@ -119,16 +119,16 @@ export const Projects: React.FC = () => {
 
         {/* Notice on custom projects */}
         <div className="mt-12 text-center p-6 rounded-2xl bg-white border border-[#E5E2DA] max-w-2xl mx-auto">
-          <p className="text-sm text-[#5E6672]">
-            هل لديك مخطط أو فكرة خاصة ترغب في تنفيذها على أرض الواقع؟
+          <p className="text-xs sm:text-sm text-[#5E6672] leading-relaxed">
+            ملاحظة: النماذج والتصاميم المعروضة هي نماذج تصميمية مقترحة لتوضيح أساليب التشطيب والمواد المتاحة. يتم تصميم وتنفيذ كل مشروع في أبها بشكل مخصص ومستقل وفق المخططات المعمارية المعتمدة للعميل.
           </p>
-          <div className="mt-3">
+          <div className="mt-4">
             <a
               href="#contact"
               className="inline-flex items-center gap-1.5 text-sm font-bold text-[#111827] hover:text-[#C59B27] transition-colors"
             >
               <MessageSquare className="w-4 h-4 text-[#C59B27]" aria-hidden="true" />
-              <span>شاركنا تفاصيل مشروعك للحصول على دراسة مبدئية مجانية</span>
+              <span>شاركنا أبعاد ومخطط عقارك في أبها للحصول على دراسة مبدئية</span>
             </a>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { Compass, Phone, Mail, MapPin, Clock, ArrowUpRight } from 'lucide-react'
 import { companyData, mainNavLinks } from '@/data/company';
 import { servicesData } from '@/data/services';
 import { Container } from '@/components/ui/Container';
-import { getDirectCallLink, getEmailLink, createWhatsAppLink } from '@/lib/whatsapp';
+import { getDirectCallLink, getEmailLink, createWhatsAppLink, formatPhoneDisplay } from '@/lib/whatsapp';
 
 export const Footer: React.FC = () => {
   const currentYear = 2026; // or dynamic
@@ -88,7 +88,7 @@ export const Footer: React.FC = () => {
                     dir="ltr"
                     className="hover:text-white transition-colors"
                   >
-                    {companyData.phone}
+                    <span dir="ltr">{formatPhoneDisplay(companyData.phone)}</span>
                   </a>
                 </li>
               ) : null}
@@ -108,10 +108,12 @@ export const Footer: React.FC = () => {
                   بيانات التواصل الرسمية قيد الاعتماد
                 </li>
               )}
-              <li className="flex items-start gap-3">
-                <Clock className="w-4 h-4 text-[#C59B27] shrink-0 mt-0.5" aria-hidden="true" />
-                <span>{companyData.workingHours}</span>
-              </li>
+              {companyData.workingHours ? (
+                <li className="flex items-start gap-3">
+                  <Clock className="w-4 h-4 text-[#C59B27] shrink-0 mt-0.5" aria-hidden="true" />
+                  <span>{companyData.workingHours}</span>
+                </li>
+              ) : null}
             </ul>
 
             {companyData.isContactConfigured && companyData.whatsappNumber ? (

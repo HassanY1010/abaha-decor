@@ -5,7 +5,7 @@ async function testSite() {
     try {
       const res = await fetch(`http://localhost:3000${route}`);
       const text = await res.text();
-      console.log(`=== ROUTE: ${route} ===`);
+      console.log(`\n=== ROUTE: ${route} ===`);
       console.log(`Status: ${res.status}`);
       console.log(`Content-Type: ${res.headers.get('content-type')}`);
       console.log(`Length: ${text.length}`);
@@ -14,18 +14,20 @@ async function testSite() {
         console.log('Includes lang="ar":', text.includes('lang="ar"'));
         console.log('Includes dir="rtl":', text.includes('dir="rtl"'));
         console.log('Includes H1:', text.includes('<h1'));
-        console.log('H1 count:', (text.match(/<h1/g) || []).length);
+        console.log('Includes Confirmed Name (رونق أبها):', text.includes('رونق أبها'));
+        console.log('Includes City (أبها):', text.includes('أبها'));
+        console.log('Includes Canonical tag:', text.includes('rel="canonical"'));
+        console.log('Includes WhatsApp link with wa.me/966560979886:', text.includes('https://wa.me/966560979886'));
+        console.log('Includes tel:+966560979886 link:', text.includes('tel:+966560979886'));
+        console.log('Does NOT duplicate country code (966966):', !text.includes('966966'));
+        console.log('Does NOT contain unverified email Abahah@gmail.com:', !text.includes('Abahah@gmail.com'));
+        console.log('Does NOT contain dummy 00000000:', !text.includes('00000000'));
         console.log('Includes JSON-LD schema:', text.includes('application/ld+json'));
-        console.log('Includes Canonical:', text.includes('rel="canonical"'));
-        console.log('Includes Cairo font:', text.includes('Cairo') || text.includes('cairo'));
-        console.log('Includes WhatsApp link:', text.includes('https://wa.me/'));
-        console.log('Includes tel link:', text.includes('tel:'));
-        console.log('Includes mailto link:', text.includes('mailto:'));
-        console.log('Includes skip link:', text.includes('#main-content'));
+        console.log('Includes skip link (#main-content):', text.includes('#main-content'));
       } else if (route === '/robots.txt') {
-        console.log('Robots content:\n' + text);
+        console.log('Robots content:\n' + text.trim());
       } else if (route === '/sitemap.xml') {
-        console.log('Sitemap sample:\n' + text.slice(0, 300));
+        console.log('Sitemap sample:\n' + text.slice(0, 250).trim());
       }
     } catch (err) {
       console.error(`Error on ${route}:`, err.message);

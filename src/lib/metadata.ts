@@ -1,28 +1,30 @@
 import { Metadata } from 'next';
 import { companyData } from '@/data/company';
+import { formatPhoneForTel } from '@/lib/whatsapp';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com';
+// النطاق الإنتاجي الفعلي (يُضبط فقط عبر متغير البيئة بعد حسم وشراء النطاق الرسمي)
+const productionDomain = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const siteMetadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  ...(productionDomain ? { metadataBase: new URL(productionDomain) } : {}),
   title: {
-    default: `${companyData.name} | خدمات التشطيبات والديكور والتصميم الداخلي`,
+    default: `${companyData.name} | خدمات التشطيبات والديكور والتصميم الداخلي في ${companyData.city}`,
     template: `%s | ${companyData.name}`,
   },
-  description: `${companyData.name} - ${companyData.shortDescription} في ${companyData.serviceArea}. إشراف هندسي وتنفيذ متقن.`,
+  description: `${companyData.name} - ${companyData.shortDescription} إشراف هندسي وتنفيذ متقن للمشاريع السكنية والتجارية في ${companyData.city}.`,
   applicationName: companyData.name,
   keywords: [
+    'تشطيبات أبها',
+    'ديكورات أبها',
     'تشطيبات وديكورات',
-    'تصميم داخلي',
-    'تشطيب فيلا',
-    'جبس بورد',
-    'دهانات حديثة',
-    'تركيب باركيه',
-    'مقاول تشطيب',
+    'تصميم داخلي أبها',
+    'مقاول تشطيب في أبها',
+    'دهانات أبها',
+    'جبس بورد أبها',
+    'تركيب أرضيات باركيه',
     'إشراف هندسي',
-    'تسليم مفتاح',
+    'تشطيب منازل وفلل',
     companyData.name,
-    ...(companyData.isCityConfirmed ? [`تشطيبات ${companyData.city}`] : []),
   ],
   authors: [{ name: companyData.name }],
   creator: companyData.name,
@@ -32,13 +34,11 @@ export const siteMetadata: Metadata = {
     address: false,
     telephone: false,
   },
-  alternates: {
-    canonical: '/',
-  },
+  ...(productionDomain ? { alternates: { canonical: '/' } } : {}),
   openGraph: {
-    title: `${companyData.name} | تشطيبات وديكورات معمارية عصرية`,
+    title: `${companyData.name} | تشطيبات وديكورات معمارية في ${companyData.city}`,
     description: companyData.shortDescription,
-    url: siteUrl,
+    ...(productionDomain ? { url: productionDomain } : {}),
     siteName: companyData.name,
     locale: 'ar_SA',
     type: 'website',
@@ -63,7 +63,7 @@ export const siteMetadata: Metadata = {
 
 /**
  * توليد Structured Data (Schema.org) بنوع LocalBusiness
- * يتوافق مع المحتوى المعروض دون اختلاق تقييمات أو بيانات غير موثقة
+ * يتوافق بدقة مع البيانات المؤكدة فقط دون اختلاق ساعات عمل أو تقييمات غير موثقة
  */
 export function generateLocalBusinessSchema() {
   const schema: Record<string, unknown> = {
@@ -71,36 +71,24 @@ export function generateLocalBusinessSchema() {
     '@type': 'HomeAndConstructionBusiness',
     name: companyData.name,
     description: companyData.shortDescription,
-    url: siteUrl,
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'SA',
-      ...(companyData.isCityConfirmed ? { addressLocality: companyData.city } : {}),
+      addressLocality: companyData.city,
     },
     areaServed: {
-      '@type': 'AdministrativeArea',
+      '@type': 'City',
       name: companyData.serviceArea,
     },
     priceRange: '$$',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Saturday',
-          'Sunday',
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-        ],
-        opens: '08:00',
-        closes: '20:00',
-      },
-    ],
   };
 
+  if (productionDomain) {
+    schema.url = productionDomain;
+  }
+
   if (companyData.isContactConfigured && companyData.phone) {
-    schema.telephone = companyData.phone;
+    schema.telephone = formatPhoneForTel(companyData.phone);
   }
 
   return schema;

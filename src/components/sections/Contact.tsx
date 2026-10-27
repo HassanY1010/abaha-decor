@@ -19,6 +19,7 @@ import {
   createWhatsAppLink,
   getDirectCallLink,
   getEmailLink,
+  formatPhoneDisplay,
 } from '@/lib/whatsapp';
 
 export const Contact: React.FC = () => {
@@ -84,7 +85,7 @@ export const Contact: React.FC = () => {
                             dir="ltr"
                             className="text-base sm:text-lg font-bold text-[#111827] hover:text-[#C59B27] transition-colors"
                           >
-                            {companyData.phone}
+                            <span dir="ltr">{formatPhoneDisplay(companyData.phone)}</span>
                           </a>
                         </div>
                       </div>
@@ -147,10 +148,12 @@ export const Contact: React.FC = () => {
                     <MapPin className="w-4 h-4 text-[#C59B27] shrink-0" aria-hidden="true" />
                     <span>{companyData.serviceArea || companyData.city}</span>
                   </div>
-                  <div className="flex items-center gap-2.5">
-                    <Clock className="w-4 h-4 text-[#C59B27] shrink-0" aria-hidden="true" />
-                    <span>{companyData.workingHours}</span>
-                  </div>
+                  {companyData.workingHours ? (
+                    <div className="flex items-center gap-2.5">
+                      <Clock className="w-4 h-4 text-[#C59B27] shrink-0" aria-hidden="true" />
+                      <span>{companyData.workingHours}</span>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </div>

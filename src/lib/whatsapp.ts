@@ -1,22 +1,71 @@
 import { companyData } from '@/data/company';
 
 /**
- * دالة لتنظيف وتجهيز رقم الهاتف للاستخدام في روابط الاتصال
+ * دالة لتنظيف وتجهيز رقم الهاتف للاستخدام في روابط الاتصال tel:
+ * تضمن إرجاع الرقم بالصيغة الدولية مثل +966560979886 وتمنع تكرار رمز الدولة
  */
 export function formatPhoneForTel(phone: string): string {
-  return phone.replace(/[^\d+]/g, '');
+  if (!phone) return '';
+  const digits = phone.replace(/[^\d]/g, '');
+  if (!digits) return '';
+
+  if (digits.startsWith('00966')) {
+    return '+' + digits.slice(2);
+  }
+  if (digits.startsWith('05') && digits.length === 10) {
+    return '+966' + digits.slice(1);
+  }
+  if (digits.startsWith('966')) {
+    return '+' + digits;
+  }
+  if (digits.length === 9 && digits.startsWith('5')) {
+    return '+966' + digits;
+  }
+  return '+' + digits;
 }
 
 /**
- * دالة لتجهيز رقم الواتساب بالصيغة الدولية القياسية
- * تدعم تحويل الأرقام المحلية التي تبدأ بـ 05 تلقائياً إلى 9665
+ * دالة لتجهيز رقم الواتساب بالصيغة الدولية القياسية للأرقام wa.me
+ * تستخرج الأرقام فقط بدون + وبدون صفر محلي وبدون تكرار رمز الدولة 966
  */
 export function formatWhatsAppNumber(phone: string): string {
+  if (!phone) return '';
   const digits = phone.replace(/[^\d]/g, '');
+  if (!digits) return '';
+
+  if (digits.startsWith('00966')) {
+    return digits.slice(2);
+  }
   if (digits.startsWith('05') && digits.length === 10) {
     return '966' + digits.slice(1);
   }
+  if (digits.startsWith('966')) {
+    return digits;
+  }
+  if (digits.length === 9 && digits.startsWith('5')) {
+    return '966' + digits;
+  }
   return digits;
+}
+
+/**
+ * دالة لتنسيق عرض رقم الهاتف بشكل بصري مقروء (مثال: +966 56 097 9886)
+ */
+export function formatPhoneDisplay(phone: string): string {
+  if (!phone) return '';
+  const digits = phone.replace(/[^\d]/g, '');
+  let raw966 = digits;
+  if (digits.startsWith('05') && digits.length === 10) {
+    raw966 = '966' + digits.slice(1);
+  } else if (digits.length === 9 && digits.startsWith('5')) {
+    raw966 = '966' + digits;
+  } else if (digits.startsWith('00966')) {
+    raw966 = digits.slice(2);
+  }
+  if (raw966.startsWith('966') && raw966.length === 12) {
+    return `+${raw966.slice(0, 3)} ${raw966.slice(3, 5)} ${raw966.slice(5, 8)} ${raw966.slice(8)}`;
+  }
+  return phone;
 }
 
 export interface QuoteParams {

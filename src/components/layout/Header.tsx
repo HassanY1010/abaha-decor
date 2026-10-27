@@ -5,7 +5,7 @@ import { companyData, mainNavLinks } from '@/data/company';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { MobileNavigation } from '@/components/layout/MobileNavigation';
-import { getDirectCallLink } from '@/lib/whatsapp';
+import { getDirectCallLink, formatPhoneDisplay } from '@/lib/whatsapp';
 
 export const Header: React.FC = () => {
   return (
@@ -52,7 +52,7 @@ export const Header: React.FC = () => {
                 aria-label={`اتصل بنا هاتفياً على الرقم ${companyData.phone}`}
               >
                 <PhoneCall className="w-4 h-4 text-[#C59B27]" aria-hidden="true" />
-                <span dir="ltr">{companyData.phone}</span>
+                <span dir="ltr">{formatPhoneDisplay(companyData.phone)}</span>
               </a>
             ) : null}
             <Button
