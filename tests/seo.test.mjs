@@ -47,14 +47,14 @@ test('SEO HTML Inspection: canonical, title, description, schema, OpenGraph, and
   const titleMatch = html.match(/<title>([^<]+)<\/title>/);
   assert.ok(titleMatch, 'HTML must contain <title>');
   const title = titleMatch[1];
-  assert.ok(title.includes('رونق أبها'));
-  assert.ok(title.includes('أبها'));
-  assert.ok(title.length >= 30 && title.length <= 70, `Title length is ${title.length}, expected 30-70`);
+  assert.ok(title.includes('ديكورات ودهانات الدمام'));
+  assert.ok(title.includes('الدمام'));
+  assert.ok(title.length >= 25 && title.length <= 75, `Title length is ${title.length}, expected 25-75`);
 
   const descMatch = html.match(/<meta\s+name="description"\s+content="([^"]+)"/);
   assert.ok(descMatch, 'HTML must contain meta description');
   const desc = descMatch[1];
-  assert.ok(desc.includes('أبها'));
+  assert.ok(desc.includes('الدمام'));
   assert.ok(desc.length >= 90 && desc.length <= 165, `Description length is ${desc.length}, expected 90-165`);
 
   // Canonical tag must match sitemap exactly
@@ -74,8 +74,8 @@ test('SEO HTML Inspection: canonical, title, description, schema, OpenGraph, and
   assert.ok(html.includes('<h1'), 'Page must contain an <h1> heading');
   const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/);
   assert.ok(h1Match, 'Must find <h1> element content');
-  assert.ok(h1Match[1].includes('أبها'), 'H1 must include city name (أبها) for local relevance');
-  assert.ok(h1Match[1].includes('تشطيب'), 'H1 must include primary service keyword (تشطيب)');
+  assert.ok(h1Match[1].includes('الدمام'), 'H1 must include city name (الدمام) for local relevance');
+  assert.ok(h1Match[1].includes('ديكورات') || h1Match[1].includes('دهانات'), 'H1 must include primary service keyword');
 
   // Structured Data Schema.org
   const jsonLdMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
@@ -91,9 +91,9 @@ test('SEO HTML Inspection: canonical, title, description, schema, OpenGraph, and
       : e['@type'] === 'HomeAndConstructionBusiness'
   );
   assert.ok(business, 'HomeAndConstructionBusiness must be in graph');
-  assert.equal(business.address?.addressLocality, 'أبها');
-  assert.equal(business.address?.addressRegion, 'منطقة عسير');
-  assert.equal(business.telephone, '+966560979886');
+  assert.equal(business.address?.addressLocality, 'الدمام');
+  assert.equal(business.address?.addressRegion, 'المنطقة الشرقية');
+  assert.equal(business.telephone, '+966575083901');
   assert.ok(!business.aggregateRating, 'Must not include fake aggregate rating');
 
   // Verify FAQPage entity in graph

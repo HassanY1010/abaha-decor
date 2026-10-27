@@ -14,11 +14,11 @@ async function testSite() {
         console.log('Includes lang="ar":', text.includes('lang="ar"'));
         console.log('Includes dir="rtl":', text.includes('dir="rtl"'));
         console.log('Includes H1:', text.includes('<h1'));
-        console.log('Includes Confirmed Name (رونق أبها):', text.includes('رونق أبها'));
-        console.log('Includes City (أبها):', text.includes('أبها'));
+        console.log('Includes Confirmed Name (ديكورات ودهانات الدمام):', text.includes('ديكورات ودهانات الدمام'));
+        console.log('Includes City (الدمام):', text.includes('الدمام'));
         console.log('Includes Canonical tag:', text.includes('rel="canonical"'));
-        console.log('Includes WhatsApp link with wa.me/966560979886:', text.includes('https://wa.me/966560979886'));
-        console.log('Includes tel:+966560979886 link:', text.includes('tel:+966560979886'));
+        console.log('Includes WhatsApp link with wa.me/966575083901:', text.includes('https://wa.me/966575083901'));
+        console.log('Includes tel:+966575083901 link:', text.includes('tel:+966575083901'));
         console.log('Does NOT duplicate country code (966966):', !text.includes('966966'));
         console.log('Does NOT contain unverified email Abahah@gmail.com:', !text.includes('Abahah@gmail.com'));
         console.log('Does NOT contain dummy 00000000:', !text.includes('00000000'));

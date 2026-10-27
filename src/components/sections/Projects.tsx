@@ -22,7 +22,7 @@ export const Projects: React.FC = () => {
         <SectionHeading
           badge="نماذج معمارية"
           title="نماذج وتصاميم معمارية مقترحة"
-          subtitle="استعرض نماذج وأساليب تشطيب معمارية توضح خيارات المواد، الإضاءة، والتوزيع الفراغي لمشروعك في أبها"
+          subtitle="استعرض نماذج وأساليب ديكور وتشطيب توضح خيارات المواد، الإضاءة، والتوزيع الفراغي لمشروعك في الدمام"
         />
 
         {/* Category Tabs */}
@@ -135,7 +135,7 @@ export const Projects: React.FC = () => {
         {/* Notice on custom projects */}
         <div className="mt-12 text-center p-6 rounded-2xl bg-white border border-[#E5E2DA] max-w-2xl mx-auto">
           <p className="text-xs sm:text-sm text-[#5E6672] leading-relaxed">
-            ملاحظة: النماذج والتصاميم المعروضة هي نماذج تصميمية مقترحة لتوضيح أساليب التشطيب والمواد المتاحة. يتم تصميم وتنفيذ كل مشروع في أبها بشكل مخصص ومستقل وفق المخططات المعمارية المعتمدة للعميل.
+            ملاحظة: النماذج والتصاميم المعروضة هي نماذج تصميمية مقترحة لتوضيح أساليب الديكور والمواد المتاحة. يتم تصميم وتنفيذ كل مشروع في الدمام والمنطقة الشرقية بشكل مخصص ومستقل وفق المخططات والمعايير المعتمدة للعميل.
           </p>
           <div className="mt-4">
             <a
@@ -143,7 +143,7 @@ export const Projects: React.FC = () => {
               className="inline-flex items-center gap-1.5 text-sm font-bold text-[#111827] hover:text-[#C59B27] transition-colors"
             >
               <MessageSquare className="w-4 h-4 text-[#C59B27]" aria-hidden="true" />
-              <span>شاركنا أبعاد ومخطط عقارك في أبها للحصول على دراسة مبدئية</span>
+              <span>شاركنا أبعاد ومخطط عقارك في الدمام أو الشرقية للحصول على دراسة مبدئية</span>
             </a>
           </div>
         </div>

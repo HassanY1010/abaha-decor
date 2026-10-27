@@ -12,26 +12,26 @@ const productionDomain = (
 export const siteMetadata: Metadata = {
   metadataBase: new URL(productionDomain),
   title: {
-    default: `${companyData.name} | تشطيب فلل وتصميم داخلي في أبها`,
+    default: `${companyData.name} | تشطيبات وديكورات ودهانات في الدمام`,
     template: `%s | ${companyData.name}`,
   },
   description:
-    'مؤسسة رونق أبها متخصصة في أعمال تشطيب الفلل والمنازل، التصميم الداخلي، والجبس بورد والدهانات بأبها. إشراف هندسي وتنفيذ متقن. اطلب مقايسة مجانية.',
+    'ديكورات ودهانات الدمام: تنفيذ أعمال الديكورات العصرية، الدهانات الداخلية والخارجية، وتكسيات الخشب والرخام والفوم بالدمام والشرقية. اطلب مقايسة مجانية.',
   applicationName: companyData.name,
   keywords: [
-    'تشطيبات أبها',
-    'ديكورات أبها',
-    'تشطيبات وديكورات في أبها',
-    'شركة تشطيبات في أبها',
-    'مقاول تشطيب أبها',
-    'تشطيب فلل في أبها',
-    'تصميم داخلي أبها',
-    'دهانات وديكورات أبها',
-    'جبس بورد أبها',
-    'تركيب أرضيات باركيه أبها',
-    'ترميم منازل في أبها',
-    'إشراف هندسي أبها',
-    'رونق أبها',
+    'ديكورات الدمام',
+    'دهانات الدمام',
+    'تشطيبات الدمام',
+    'معلم دهانات بالدمام',
+    'معلم ديكورات الدمام',
+    'دهانات وديكورات الدمام',
+    'بديل خشب الدمام',
+    'بديل رخام الدمام',
+    'فوم وجبس بورد الدمام',
+    'مقاول تشطيب الدمام',
+    'تشطيب فلل في الدمام',
+    'ديكورات الخبر والدمام',
+    'المنطقة الشرقية',
     companyData.name,
   ],
   authors: [{ name: companyData.name, url: productionDomain }],
@@ -54,9 +54,9 @@ export const siteMetadata: Metadata = {
     canonical: productionDomain,
   },
   openGraph: {
-    title: `${companyData.name} | تشطيبات وديكورات وتصميم داخلي في أبها`,
+    title: `${companyData.name} | تشطيبات وديكورات ودهانات في الدمام`,
     description:
-      'خدمات تشطيب وتصميم داخلي متكاملة للفلل والمنازل والمشاريع السكنية والتجارية في أبها مع إشراف هندسي وضمان الجودة.',
+      'خدمات ديكورات ودهانات عصرية وتصميم داخلي متكامل للفلل والمنازل والمشاريع السكنية والتجارية في الدمام والمنطقة الشرقية مع إشراف هندسي وضمان الجودة.',
     url: productionDomain,
     siteName: companyData.name,
     locale: 'ar_SA',
@@ -66,15 +66,15 @@ export const siteMetadata: Metadata = {
         url: '/images/og-share.jpg',
         width: 1200,
         height: 630,
-        alt: `${companyData.name} - تشطيبات وديكورات وتصميم داخلي في أبها`,
+        alt: `${companyData.name} - تشطيبات وديكورات ودهانات في الدمام`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${companyData.name} | تشطيبات وديكورات وتصميم داخلي في أبها`,
+    title: `${companyData.name} | تشطيبات وديكورات ودهانات في الدمام`,
     description:
-      'تشطيبات معمارية وتصميم داخلي متكامل للفلل والمشاريع في أبها بإشراف هندسي وتنفيذ متقن.',
+      'تنفيذ أعمال الديكورات العصرية والدهانات وتشطيب الفلل في الدمام والمنطقة الشرقية بإشراف هندسي وتنفيذ متقن.',
     images: ['/images/og-share.jpg'],
   },
   verification: {
@@ -111,7 +111,7 @@ export function generateLocalBusinessSchema() {
     '@type': ['HomeAndConstructionBusiness', 'GeneralContractor'],
     '@id': businessId,
     name: companyData.name,
-    alternateName: 'رونق أبها',
+    alternateName: 'ديكورات ودهانات الدمام',
     url: productionDomain,
     logo: `${productionDomain}/images/logo-icon.jpg`,
     image: `${productionDomain}/images/og-share.jpg`,
@@ -120,7 +120,7 @@ export function generateLocalBusinessSchema() {
     address: {
       '@type': 'PostalAddress',
       addressLocality: companyData.city,
-      addressRegion: 'منطقة عسير',
+      addressRegion: 'المنطقة الشرقية',
       addressCountry: 'SA',
     },
     areaServed: [
@@ -130,12 +130,12 @@ export function generateLocalBusinessSchema() {
       },
       {
         '@type': 'AdministrativeArea',
-        name: 'منطقة عسير',
+        name: 'المنطقة الشرقية',
       },
     ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: `خدمات التشطيبات والديكور في ${companyData.city}`,
+      name: `خدمات الديكورات والدهانات في ${companyData.city}`,
       itemListElement: servicesData.map((service, index) => ({
         '@type': 'Offer',
         itemOffered: {

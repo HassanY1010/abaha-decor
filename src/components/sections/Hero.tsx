@@ -22,11 +22,11 @@ export const Hero: React.FC = () => {
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-[#C59B27]/10 text-[#785404] border border-[#C59B27]/25 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#C59B27] animate-pulse" aria-hidden="true" />
-              <span>{companyData.serviceArea} • تشطيبات معمارية متكاملة</span>
+              <span>{companyData.serviceArea} • ديكورات ودهانات متكاملة</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#111827] leading-[1.2] mb-6">
-              تشطيبات وديكورات في أبها{' '}
+              ديكورات ودهانات في الدمام{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C59B27] to-[#A07810]">
                 بمعايير هندسية متقنة
               </span>
@@ -90,7 +90,7 @@ export const Hero: React.FC = () => {
               <div className="relative h-44 sm:h-52 w-full rounded-xl overflow-hidden mb-5 border border-white/10 group shadow-md">
                 <Image
                   src="/images/hero-interior.jpg"
-                  alt="تنفيذ تشطيبات وديكورات معمارية فاخرة في أبها"
+                  alt="تنفيذ ديكورات ودهانات وتشطيبات فاخرة في الدمام"
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 40vw"
@@ -99,7 +99,7 @@ export const Hero: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
                 <div className="absolute bottom-3 start-3 end-3 flex items-center justify-between text-xs">
                   <span className="font-bold text-[#C59B27] bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-[#C59B27]/30">
-                    نموذج تنفيذ فيلا سكنية • أبها
+                    نموذج تنفيذ فيلا سكنية • الدمام
                   </span>
                   <span className="text-[11px] text-gray-300 bg-black/70 backdrop-blur-md px-2 py-1 rounded-md">
                     تصميم وتنفيذ متكامل

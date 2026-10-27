@@ -2,7 +2,7 @@ import { companyData } from '@/data/company';
 
 /**
  * دالة لتنظيف وتجهيز رقم الهاتف للاستخدام في روابط الاتصال tel:
- * تضمن إرجاع الرقم بالصيغة الدولية مثل +966560979886 وتمنع تكرار رمز الدولة
+ * تضمن إرجاع الرقم بالصيغة الدولية مثل +966575083901 وتمنع تكرار رمز الدولة
  */
 export function formatPhoneForTel(phone: string): string {
   if (!phone) return '';
@@ -105,7 +105,7 @@ export function createWhatsAppLink(params?: QuoteParams): string {
     return '#contact';
   }
 
-  let message = `السلام عليكم ورحمة الله، أود الاستفسار عن خدمات التشطيب والديكور لدى ${companyData.name}.`;
+  let message = `السلام عليكم ورحمة الله، أود الاستفسار عن خدمات الديكورات والدهانات لدى ${companyData.name}.`;
 
   if (params) {
     const details: string[] = [];
@@ -138,7 +138,7 @@ export function getDirectCallLink(): string {
 /**
  * رابط البريد الإلكتروني
  */
-export function getEmailLink(subject = 'طلب استفسار عن خدمات التشطيب'): string {
+export function getEmailLink(subject = 'طلب استفسار عن خدمات الديكور والدهانات'): string {
   if (!companyData.email) return '#contact';
   const encodedSubject = encodeURIComponent(subject);
   return `mailto:${companyData.email}?subject=${encodedSubject}`;

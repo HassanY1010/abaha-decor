@@ -63,7 +63,7 @@ function createWhatsAppLink(number, params) {
   const cleanNumber = formatWhatsAppNumber(number);
   if (!cleanNumber) return '#contact';
 
-  let message = `السلام عليكم ورحمة الله، أود الاستفسار عن خدمات التشطيب والديكور لدى رونق أبها للتشطيبات والديكورات.`;
+  let message = `السلام عليكم ورحمة الله، أود الاستفسار عن خدمات الديكورات والدهانات لدى ديكورات ودهانات الدمام.`;
   if (params) {
     const details = [];
     if (params.serviceTitle) details.push(`- الخدمة المطلوبة: ${params.serviceTitle}`);
@@ -78,33 +78,33 @@ function createWhatsAppLink(number, params) {
 }
 
 test('formatPhoneForTel formats international numbers for tel: links without duplicating country code', () => {
-  assert.equal(formatPhoneForTel('966560979886'), '+966560979886');
-  assert.equal(formatPhoneForTel('+966 56 097 9886'), '+966560979886');
-  assert.equal(formatPhoneForTel('0560979886'), '+966560979886');
-  assert.equal(formatPhoneForTel('00966560979886'), '+966560979886');
+  assert.equal(formatPhoneForTel('966575083901'), '+966575083901');
+  assert.equal(formatPhoneForTel('+966 57 508 3901'), '+966575083901');
+  assert.equal(formatPhoneForTel('0575083901'), '+966575083901');
+  assert.equal(formatPhoneForTel('00966575083901'), '+966575083901');
 });
 
 test('formatWhatsAppNumber extracts clean international digits for wa.me without duplicating country code', () => {
-  assert.equal(formatWhatsAppNumber('966560979886'), '966560979886');
-  assert.equal(formatWhatsAppNumber('+966 56 097 9886'), '966560979886');
-  assert.equal(formatWhatsAppNumber('0560979886'), '966560979886');
-  assert.equal(formatWhatsAppNumber('00966560979886'), '966560979886');
+  assert.equal(formatWhatsAppNumber('966575083901'), '966575083901');
+  assert.equal(formatWhatsAppNumber('+966 57 508 3901'), '966575083901');
+  assert.equal(formatWhatsAppNumber('0575083901'), '966575083901');
+  assert.equal(formatWhatsAppNumber('00966575083901'), '966575083901');
 });
 
 test('formatPhoneDisplay formats phone numbers into readable visual text', () => {
-  assert.equal(formatPhoneDisplay('966560979886'), '+966 56 097 9886');
-  assert.equal(formatPhoneDisplay('+966560979886'), '+966 56 097 9886');
-  assert.equal(formatPhoneDisplay('0560979886'), '+966 56 097 9886');
+  assert.equal(formatPhoneDisplay('966575083901'), '+966 57 508 3901');
+  assert.equal(formatPhoneDisplay('+966575083901'), '+966 57 508 3901');
+  assert.equal(formatPhoneDisplay('0575083901'), '+966 57 508 3901');
 });
 
 test('createWhatsAppLink creates a valid https URL with encoded arabic query and exact confirmed phone', () => {
-  const url = createWhatsAppLink('966560979886', {
+  const url = createWhatsAppLink('966575083901', {
     serviceTitle: 'التشطيب المتكامل',
     approxArea: '400',
   });
 
-  assert.ok(url.startsWith('https://wa.me/966560979886?text='));
-  assert.ok(url.includes(encodeURIComponent('رونق أبها للتشطيبات والديكورات')));
+  assert.ok(url.startsWith('https://wa.me/966575083901?text='));
+  assert.ok(url.includes(encodeURIComponent('ديكورات ودهانات الدمام')));
   assert.ok(url.includes(encodeURIComponent('التشطيب المتكامل')));
   assert.ok(url.includes(encodeURIComponent('400')));
 });
