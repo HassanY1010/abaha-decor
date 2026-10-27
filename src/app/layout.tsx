@@ -10,7 +10,7 @@ const cairo = Cairo({
   subsets: ['arabic', 'latin'],
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
-  variable: '--font-arabic',
+  variable: '--font-cairo',
 });
 
 export const metadata: Metadata = siteMetadata;
@@ -38,7 +38,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </head>
-      <body className="font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#C59B27]/20 selection:text-[#111827]">
+      <body className="antialiased min-h-screen flex flex-col justify-between selection:bg-[#C59B27]/20 selection:text-[#111827]">
         {/* Skip to main content link for keyboard and screen reader accessibility */}
         <a
           href="#main-content"

@@ -9,9 +9,14 @@ export function formatPhoneForTel(phone: string): string {
 
 /**
  * دالة لتجهيز رقم الواتساب بالصيغة الدولية القياسية
+ * تدعم تحويل الأرقام المحلية التي تبدأ بـ 05 تلقائياً إلى 9665
  */
 export function formatWhatsAppNumber(phone: string): string {
-  return phone.replace(/[^\d]/g, '');
+  const digits = phone.replace(/[^\d]/g, '');
+  if (digits.startsWith('05') && digits.length === 10) {
+    return '966' + digits.slice(1);
+  }
+  return digits;
 }
 
 export interface QuoteParams {

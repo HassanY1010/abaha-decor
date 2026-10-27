@@ -7,7 +7,11 @@ function formatPhoneForTel(phone) {
 }
 
 function formatWhatsAppNumber(phone) {
-  return phone.replace(/[^\d]/g, '');
+  const digits = phone.replace(/[^\d]/g, '');
+  if (digits.startsWith('05') && digits.length === 10) {
+    return '966' + digits.slice(1);
+  }
+  return digits;
 }
 
 function createWhatsAppLink(number, params) {
@@ -36,6 +40,7 @@ test('formatPhoneForTel strips spaces, dashes and non-numeric characters except 
 test('formatWhatsAppNumber extracts raw digits for WhatsApp international URL', () => {
   assert.equal(formatWhatsAppNumber('+966-50-000-0000'), '966500000000');
   assert.equal(formatWhatsAppNumber('966500000000'), '966500000000');
+  assert.equal(formatWhatsAppNumber('0500000000'), '966500000000');
 });
 
 test('createWhatsAppLink creates a valid https URL with encoded arabic query', () => {
