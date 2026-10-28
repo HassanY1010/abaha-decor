@@ -13,11 +13,7 @@ export const productionDomain = (
 export const siteMetadata: Metadata = {
   metadataBase: new URL(productionDomain),
   title: {
-<<<<<<< HEAD
     default: `${companyData.name} | تشطيبات وديكور داخلي بالمنطقة الشرقية`,
-=======
-    default: `${companyData.name} | تشطيبات وديكورات ودهانات في الدمام`,
->>>>>>> 05371f3 (feat(seo): add Google Search Console verification meta tag and html file)
     template: `%s | ${companyData.name}`,
   },
   description:
@@ -59,11 +55,7 @@ export const siteMetadata: Metadata = {
     canonical: productionDomain,
   },
   openGraph: {
-<<<<<<< HEAD
     title: `${companyData.name} | تشطيبات وديكور داخلي بالمنطقة الشرقية`,
-=======
-    title: `${companyData.name} | تشطيبات وديكورات ودهانات في الدمام`,
->>>>>>> 05371f3 (feat(seo): add Google Search Console verification meta tag and html file)
     description:
       'خدمات ديكورات ودهانات عصرية وتصميم داخلي متكامل للفلل والمنازل والمشاريع السكنية والتجارية في الدمام والمنطقة الشرقية مع إشراف هندسي وضمان الجودة.',
     url: productionDomain,
